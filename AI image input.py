@@ -1,6 +1,12 @@
 import cv2
 import tensorflow as tf
 import numpy as np
+import os
+import openai
+
+openai.organization = "org-a1F5yEuczwOyZWJtZC22o4AM"
+openai.api_key = os.getenv("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")
+openai.Model.list()
 
 model = tf.keras.applications.MobileNetV2(weights='imagenet')
 
@@ -23,4 +29,6 @@ def predict_img(model, image):
     return predictions
 
 predictions = predict_img(model, image)
+
+#bugged
 
